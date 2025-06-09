@@ -1,4 +1,10 @@
 // Oyun değişkenleri
+const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+const storage = isBrowser && window.localStorage ? window.localStorage : {
+    getItem: () => null,
+    setItem: () => {}
+};
+
 let currentLevel = 1;
 let unlockedLevels = 1; // Başlangıçta sadece 1. seviye açık
 const levels = [
@@ -1108,7 +1114,7 @@ function setupPaintCanvas() {
 
 // Kullanıcı ilerlemesini kaydet
 function saveProgress() {
-    localStorage.setItem('ressamRobotProgress', JSON.stringify({
+    storage.setItem('ressamRobotProgress', JSON.stringify({
         unlockedLevels: unlockedLevels,
         currentLevel: currentLevel
     }));
@@ -1116,7 +1122,7 @@ function saveProgress() {
 
 // Kullanıcı ilerlemesini yükle
 function loadProgress() {
-    const savedProgress = localStorage.getItem('ressamRobotProgress');
+    const savedProgress = storage.getItem('ressamRobotProgress');
     if (savedProgress) {
         const progress = JSON.parse(savedProgress);
         unlockedLevels = progress.unlockedLevels;
@@ -1125,7 +1131,11 @@ function loadProgress() {
 }
 
 // Oyunu başlat
-window.addEventListener('load', () => {
-    loadProgress();
-    initGame();
-});
+if (isBrowser) {
+    window.addEventListener('load', () => {
+        loadProgress();
+        initGame();
+    });
+} else {
+    console.warn('script.js is intended for the browser environment.');
+}

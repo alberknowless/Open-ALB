@@ -1,9 +1,15 @@
-// Global değişkenler - diğer dosyalardan erişilebilmesi için window objesine ekle
-window.canvas = null;
-window.ctx = null;
-window.x = 0;
-window.y = 0;
-window.angle = 0;
+(function() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+        console.warn('block_programming_visualizer.js requires a browser environment.');
+        return;
+    }
+
+    // Global değişkenler - diğer dosyalardan erişilebilmesi için window objesine ekle
+    window.canvas = null;
+    window.ctx = null;
+    window.x = 0;
+    window.y = 0;
+    window.angle = 0;
 
 // Path ve karakter başlangıç
 const path = [
@@ -162,3 +168,4 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 }
 
 console.log('block_programming_visualizer.js yüklendi');
+})();
