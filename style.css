@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #FF6B6B;
+    --secondary-color: #4ECDC4;
+    --accent-color: #FFE66D;
+    --dark-color: #1A535C;
+    --light-color: #F7FFF7;
+    --grid-color: #E8E8E8;
+    --obstacle-color: #6C5B7B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-size: 16px;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.level-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.level-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.level-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--dark-color);
+}
+
+.level-btn.active {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 200px 300px 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.panel {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+#blocksContainer, #programContainer {
+    min-height: 300px;
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.block {
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.block:hover {
+    transform: translateY(-2px);
+}
+
+.moveForward-block {
+    background-color: var(--primary-color);
+}
+
+.turnRight-block {
+    background-color: var(--secondary-color);
+}
+
+.turnLeft-block {
+    background-color: var(--accent-color);
+}
+
+.loop-block {
+    background-color: var(--dark-color);
+}
+
+.paintAction-block {
+    background-color: #6C5B7B;
+}
+
+.program-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.run-btn {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+.reset-btn {
+    background-color: #FF9A8B;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+#gameCanvas, #paintCanvas {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.paint-counter {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.level-info {
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.canvas-panel {
+    margin-top: 20px;
+}
+
+.canvas-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.modal h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.modal-artwork {
+    margin: 20px 0;
+    background-color: var(--light-color);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.block-container {
+    min-height: 50px;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.nested-block {
+    margin: 5px 0;
+}
+
+/* Responsive design için */
+@media (max-width: 1000px) {
+    .workspace {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .game-panel {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .game-panel {
+        grid-column: span 1;
+    }
+}
