@@ -1,3 +1,8 @@
+if (typeof window === 'undefined') {
+    console.error('This script is intended to run in a browser. Please open index.html');
+    process.exit(1);
+}
+
 const levels = [
     {
         board: [

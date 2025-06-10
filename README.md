@@ -13,4 +13,7 @@ oyuncunun izlediği yol görsel olarak takip edilebilir. Ressamın bulunduğu
 karede yönünü gösteren bir ok bulunur. Ayrıca üst kısımda ne yapmanız
 gerektiğini hatırlatan küçük bir baloncuk vardır.
 
-Oyun tarayıcıda çalıştırılabilir. `path_solver.c` dosyası isteğe bağlı olarak derlenip kullanılabilir.
+Oyun tarayıcıda çalıştırılabilir. `script.js` dosyası tarayıcıya özgü API’leri
+kullandığından `node script.js` komutu hata verir. Çalıştırmak için
+`index.html` dosyasını bir web tarayıcısında açın. `path_solver.c` dosyası
+isteğe bağlı olarak derlenip kullanılabilir.
