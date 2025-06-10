@@ -8,4 +8,7 @@ Bu depo, çocuklar için hazırlanmış basit bir blok tabanlı kodlama oyununu 
 - `script.js` – oyun mantığı ve seviyeler
 - `path_solver.c` – örnek yol bulma algoritması (opsiyonel)
 
+Oyun sırasında ressamın geçtiği kareler `visited` sınıfı ile renklendirilerek
+oyuncunun izlediği yol görsel olarak takip edilebilir.
+
 Oyun tarayıcıda çalıştırılabilir. `path_solver.c` dosyası isteğe bağlı olarak derlenip kullanılabilir.

@@ -114,6 +114,7 @@ function move(cmd) {
     if (next.classList.contains('obstacle')) return false;
     const current = document.querySelector('.painter');
     current.classList.remove('painter');
+    current.classList.add('visited');
     if (next.classList.contains('paint')) {
         next.classList.remove('paint');
         paintsToCollect--;
