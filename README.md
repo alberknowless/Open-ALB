@@ -9,6 +9,8 @@ Bu depo, çocuklar için hazırlanmış basit bir blok tabanlı kodlama oyununu 
 - `path_solver.c` – örnek yol bulma algoritması (opsiyonel)
 
 Oyun sırasında ressamın geçtiği kareler `visited` sınıfı ile renklendirilerek
-oyuncunun izlediği yol görsel olarak takip edilebilir.
+oyuncunun izlediği yol görsel olarak takip edilebilir. Ressamın bulunduğu
+karede yönünü gösteren bir ok bulunur. Ayrıca üst kısımda ne yapmanız
+gerektiğini hatırlatan küçük bir baloncuk vardır.
 
 Oyun tarayıcıda çalıştırılabilir. `path_solver.c` dosyası isteğe bağlı olarak derlenip kullanılabilir.

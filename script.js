@@ -50,6 +50,11 @@ let currentLevel = 0;
 let program = [];
 let paintsToCollect = 0;
 let painterPos = {x:0, y:0};
+let painterDir = 'right';
+
+function arrowFor(dir) {
+    return {up:'▲', down:'▼', left:'◀', right:'▶'}[dir];
+}
 
 function createBoard(level) {
     const boardDiv = document.getElementById('board');
@@ -78,6 +83,8 @@ function createBoard(level) {
         }
     }
     document.getElementById('level-num').textContent = (level + 1);
+    painterDir = 'right';
+    document.querySelector('.painter').textContent = arrowFor(painterDir);
 }
 
 function setupDrag() {
@@ -115,11 +122,14 @@ function move(cmd) {
     const current = document.querySelector('.painter');
     current.classList.remove('painter');
     current.classList.add('visited');
+    current.textContent = '';
     if (next.classList.contains('paint')) {
         next.classList.remove('paint');
         paintsToCollect--;
     }
     next.classList.add('painter');
+    painterDir = cmd;
+    next.textContent = arrowFor(painterDir);
     painterPos = {x,y};
     if (next.classList.contains('goal') && paintsToCollect === 0) {
         currentLevel++;
@@ -135,12 +145,14 @@ function move(cmd) {
     return true;
 }
 
-function runProgram() {
+async function runProgram() {
     for (let cmd of program) {
         if (!move(cmd)) {
+            await new Promise(r => setTimeout(r, 300));
             alert('Hatalı hareket!');
             break;
         }
+        await new Promise(r => setTimeout(r, 300));
     }
     program = [];
     document.getElementById('program').innerHTML='';
