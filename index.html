@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ressam Kod Oyunu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ressam Kod Oyunu</h1>
+    <div id="level-info">Bölüm: <span id="level-num">1</span></div>
+    <div id="speech-bubble">Boya kutularını toplayıp hedefe ulaş!</div>
+    <div id="game-container">
+        <div id="board"></div>
+        <div id="controls">
+            <h2>Bloklar</h2>
+            <div id="blocks">
+                <div class="block" draggable="true" data-cmd="up">Yukarı</div>
+                <div class="block" draggable="true" data-cmd="down">Aşağı</div>
+                <div class="block" draggable="true" data-cmd="left">Sola</div>
+                <div class="block" draggable="true" data-cmd="right">Sağa</div>
+            </div>
+            <h2>Program</h2>
+            <div id="program" class="drop-zone"></div>
+            <button id="run-btn">Çalıştır</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
