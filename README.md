@@ -1,2 +1,11 @@
 # Open-ALB
-trying
+
+Bu depo, çocuklar için hazırlanmış basit bir blok tabanlı kodlama oyununu içerir. Karakterimiz ressam olup engelleri aşarak ve boya kutularını toplayarak hedefe ulaşır. Oyun HTML, CSS, JavaScript ve örnek bir C kodu barındırır. İlk sürümde 5 bölüm bulunmaktadır.
+
+## Dosyalar
+- `index.html` – oyun arayüzü
+- `styles.css` – basit çocuk dostu tasarım
+- `script.js` – oyun mantığı ve seviyeler
+- `path_solver.c` – örnek yol bulma algoritması (opsiyonel)
+
+Oyun tarayıcıda çalıştırılabilir. `path_solver.c` dosyası isteğe bağlı olarak derlenip kullanılabilir.
